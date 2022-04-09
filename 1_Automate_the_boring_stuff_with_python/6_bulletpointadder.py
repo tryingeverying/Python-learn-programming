@@ -19,4 +19,3 @@ pyperclip.copy(text)
 
 
 
-
