@@ -8,7 +8,7 @@ wenjianming_bian={}
 def gaiming():
     regex=re,compile(r'('+wenjian_qianzhui+')(\d+)(\.?'+wenjian_houzhui+')')
     for a in os.listdir(chazhao_mulu): #依次取出文件夹里的文件名称
-        mo = regex.search(a)            # 提取文件名中的数字编码
+        mo = regex.search(a)            # 提取出符合要求的文件名
         if mo != None: # 文件名是否符合要求
             wenjianming_bian[a]=mo.group(2) # 将符合要求的文件名和数字编号储存到字典中
         else:
@@ -46,14 +46,15 @@ def chongbian():
             print('位数需要是整数且不为0')
         else:
             break
-    wenjianming_bian_2 =sorted(wenjianming_bian.items(), key=lambda item:item[1])   #字典按value进行排序
+    wenjianming_bian_2 =sorted(wenjianming_bian.items(), key=lambda item:item[1])   
+    #字典按value进行排序
     # 返回一个以字典item为tuple为元素的列表
     bianhao = 1
     for b in wenjianming_bian_2:    # 遍历排序之后的文件编号的list
         wenjian_new=b[0].replace(b[1],str(bianhao).rjust(int(bianhao_weishu),'0')) #用新编号替代旧编号
         bianhao +=1
         shutil.move(os.path.join(chazhao_mulu,b[0]),os.path.join(chazhao_mulu,wenjian_new))# 可以实现在不同文件夹下的移动和重命名
-        os.rename(os.path.join(chazhao_mulu,b[0]),os.path.join(chazhao_mulu,wenjian_new)) #在同一个文件夹下对文件进行重命名可以用os.rename()
+        #os.rename(os.path.join(chazhao_mulu,b[0]),os.path.join(chazhao_mulu,wenjian_new)) #在同一个文件夹下对文件进行重命名可以用os.rename()
     print('文件以重新编码')
 
 
