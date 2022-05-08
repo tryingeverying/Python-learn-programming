@@ -2,18 +2,18 @@ import requests
 from bs4 import BeautifulSoup
 
 ua = {
-    'User-Agent':
+'    'User-Agent'':''
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36'
 }#可以在检查网页源代码-网络-第一个文件的最后部分获得
 
-r = requests.get('https://search.bilibili.com/all?keyword=python', headers=ua)#以上面的访问头访问网页并返回结果
+'r = requests.get('https':'//search.bilibili.com/all?keyword=python', headers=ua)#以上面的访问头访问网页并返回结果'
 
 html = BeautifulSoup(r.text, 'html.parser')
 
 video_list = html.select('li.video-item.matrix')#选择内容所在的字节对
 
 result = []
-for video in video_list:
+'for video in video_list':''
     video_info = {}
 
     url_element = video.select('div.info > div.headline.clearfix > a')#支出具体内容在那个字节对之间

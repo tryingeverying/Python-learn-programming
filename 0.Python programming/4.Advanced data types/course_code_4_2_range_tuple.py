@@ -15,7 +15,7 @@ tianlongbabu=tianlong+('虚竹','段誉')
 print(tianlongbabu)
 
 #支持全切片复制元组，但是不支持.copy()
-same_tianlong=tianlongbabu[:]
+'same_tianlong=tianlongbabu[':']'
 
 print(same_tianlong)
 
@@ -34,7 +34,7 @@ del tianlongbabu
 #在函数的返回值处使用，为了避免在大量代码中某个代码对函数返回值发生变动从而产生bug
 
 # 实例
-def get_information():
+'def get_information()':''
     name='虚竹'
     feature='盗号的'
     # return [name,feature]
@@ -65,10 +65,10 @@ print(b)#实现了对a的去重
 #字典
 #字典的创建
 a=dict(one=1,two=2,three=3)
-b={'one':1,'two':2,'three':3}
+'b={'one'':'1,'two':2,'three':3}'
 c=dict(zip(['one','two','three'],[1,2,3]))#zip(s,s),将两个可迭代对象缝合为字典
 d=dict([('one',1),('two',2),('three',3)])
-e=dict({'one':1,'two':2,'three':3})
+'e=dict({'one'':'1,'two':2,'three':3})'
 print(a)
 print(b)
 print(c)
@@ -84,7 +84,7 @@ print(information)
 print(information['name'])
 # d.get(key[,default]) key对应的content返回，如果不存在改可以则返回none，如果不存在改可以则返回none，如果default有赋值则返回default
 # d.pop(key[,default]) 将key对应的content从字典中删除并返回，如果不存在改可以则返回none，如果default有赋值则返回default
-# d.popitem() 取出字典最后的一对key:value
+'# d.popitem() 取出字典最后的一对key':'value'
 
 print(information.get('gender','man'))
 print(information.pop('name'))
@@ -92,7 +92,7 @@ print(information)
 print(information.popitem())
 print(information)
 
-#d[key]=value 在字典中修改or添加一个key:value
+'#d[key]=value 在字典中修改or添加一个key':'value'
 # del d[key] 删除key以及对应的value
 #key in d d中是否存在该key
 #key not in d
@@ -100,7 +100,7 @@ print(information)
 # d.copy() 复制d,并返回
 
 # d.keys() 返回一个可迭代对象，包括所有的key
-# d.items() 返回一个可迭代对象，包括所有的key:value
+'# d.items() 返回一个可迭代对象，包括所有的key':'value'
 # d.values() 返回一个可迭代对象，包括所有的value
 
 
@@ -114,32 +114,32 @@ student=[1+x for x in range(10)]
 transcript = dict(zip(student,scores))
 
 #传统写法
-ranking= sorted(transcript.items(),key=lambda x:x[1],reverse=True)
+'ranking= sorted(transcript.items(),key=lambda x':'x[1],reverse=True)'
 ranked_transcript=dict(ranking)
 #字典不能直接排序，必须把每个items取出之后才能排序
 
 #python3.6+
 ranked_transcript={
-    k:v
-    for k,v in sorted(transcript.items(),key=lambda item:item[1],reverse=True)
+'    k':'v'
+'    for k,v in sorted(transcript.items(),key=lambda item':'item[1],reverse=True)'
 }
 print(ranked_transcript)
 
 students = []
-for x in range(10):
+'for x in range(10)':''
     #利用ASCII码自动起名
     name='小'+chr(ord('A')+x)
     student={
-    'name':name,
-    'id':1+x,
-    'score':random.randint(60,100)
+'    'name'':'name,'
+'    'id'':'1+x,'
+'    'score'':'random.randint(60,100)'
     }
     students.append(student)#将生成的student放入students中
 
 print(students)
 
-students.sort(key=lambda x:x['score'],reverse=True)
-for studend in students:
+'students.sort(key=lambda x':'x['score'],reverse=True)'
+'for studend in students':''
      print(studend['id'],studend['name'],studend['score'])
 
 

@@ -11,7 +11,7 @@
 # name='虚竹'
 # feature='盗号'
 # print(f'天龙里头的挂逼有{name}，他是{feature}的')
-# print(F'天龙里头的挂逼有{name[0:1]}，他是{feature}的')#也可以是一些需要计算的表达式
+'# print(F'天龙里头的挂逼有{name[0':'1]}，他是{feature}的')#也可以是一些需要计算的表达式'
 
 # #.format()方法
 # print('天龙里头的挂逼有{}，他是{}的'.format(name,feature))
@@ -30,28 +30,28 @@
 # transcript = dict(zip(student,scores))
 
 # ranked_transcript={
-#     k:v
-#     for k,v in sorted(transcript.items(),key=lambda item:item[1],reverse=True)
+'#     k':'v'
+'#     for k,v in sorted(transcript.items(),key=lambda item':'item[1],reverse=True)'
 # }
 # print(ranked_transcript)
 
 # students = []
-# for x in range(10):
+'# for x in range(10)':''
 #     #利用ASCII码自动起名
 #     name='小'+chr(ord('A')+x)
 #     student={
-#     'name':name,
-#     'id':1+x,
-#     'score':random.randint(60,100)
+'#     'name'':'name,'
+'#     'id'':'1+x,'
+'#     'score'':'random.randint(60,100)'
 #     }
 #     students.append(student)#将生成的student放入students中
 
 # print(students)
 
-# students.sort(key=lambda x:x['score'],reverse=True)
+'# students.sort(key=lambda x':'x['score'],reverse=True)'
 # rank=1
-# for student in students:
-#     print(f"{rank:02d}.{student['name']:>5} {student['score']:<3d}")#0是前面填充0,2是两个字符，d是数字类型，>右对齐，<左对齐
+'# for student in students':''
+'#     print(f"{rank':'02d}.{student['name']:>5} {student['score']:<3d}")#0是前面填充0,2是两个字符，d是数字类型，>右对齐，<左对齐'
 #     rank+=1
 
 
@@ -87,14 +87,14 @@ f=open('log.txt')
 
 f.seek(28) #从n处开始访问文件内容
 content =f.readline()#f.readlines()返回一个字符串or二进制byte组成的list
-while content:
+'while content':''
     print(content,end=',')
     content =f.readline()# f.readline(),返回字符串，包含换行符\n
     print(f.tell()) # 返回目前访问的文件位置在多少字节处
     
 f.close()
 
-with open('log.txt','w') as n:
+'with open('log.txt','w') as n':''
 #打开文件并将返回值给n，之后close文件
     print(n)
 

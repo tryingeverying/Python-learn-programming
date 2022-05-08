@@ -2,14 +2,14 @@ import tkinter as tk
 import random
 
 # 按钮被点击之后执行该函数
-def hit_me():
+'def hit_me()':''
     print('go out')
 
 
 # 当鼠标Enter button之后执行该函数
 # 该函数把button给弄跑掉
 
-def escape(event):
+'def escape(event)':''
     b = event.widget
 
     # 获取按钮的宽度高度以及鼠标的xy坐标值
@@ -18,14 +18,14 @@ def escape(event):
     mouse_x=b.winfo_x()+event.x
     mouse_y=b.winfo_y()+event.y
 
-    while True:
+'    while True':''
         #随机生成新的按钮的位置,按钮的位置为左上就那个顶点的坐标值
         x=random.randint(0,800)
         y=random.randint(0,600)
 
         # 条件判断使之新生成的按钮的位置不在鼠标处
         if(x < mouse_x or x > mouse_x + width and x + width < 800) and (y < mouse_y 
-        or y > mouse_y + height and y + height < 600):
+'        or y > mouse_y + height and y + height < 600)':''
             break
 
     # 将按钮移动到新位置

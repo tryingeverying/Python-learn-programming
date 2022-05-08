@@ -1,9 +1,9 @@
 str_1='mixuebingchengtianmimi'
 print(len(str_1))
 change_str = ''
-for char_str in str_1:
+'for char_str in str_1':''
     split_str=ord(char_str)
-    change_str+=hex(split_str)[2:]
+'    change_str+=hex(split_str)[2':']'
 print(change_str)
 
 
@@ -19,11 +19,11 @@ print(change_str)
 answer_str=''
 answer_1=''
 #看了老师讲的一个每次两个两个的取的方法
-#for i in range(0,len(change_str),2):
+'#for i in range(0,len(change_str),2)':''
     #answer_str=change_str[i,i+1]
-for num_str in range(int(len(change_str)/2)):
+'for num_str in range(int(len(change_str)/2))':''
     
-    answer_str=change_str[num_str*2:num_str*2+2]
+'    answer_str=change_str[num_str*2':'num_str*2+2]'
   
 
     #print(answer_str)

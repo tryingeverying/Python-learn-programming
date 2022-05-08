@@ -1,13 +1,13 @@
 #calc.py
 
-def sum(a,b):
+'def sum(a,b)':''
     return a+b
 
-def sub(a,b):
+'def sub(a,b)':''
     return a-b
 
-def mul(a,b):
+'def mul(a,b)':''
     return a*b
 
-def div(a,b):
+'def div(a,b)':''
     return a/b

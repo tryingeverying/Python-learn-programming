@@ -1,14 +1,14 @@
 import struct
 
 # 使用复杂度由高到低的 70 个可打印 ASCII 字符代表 70 个不同的灰度
-gray_scale = '$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,"^`\'. '
+'gray_scale = '$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;':',"^`\'. ''
 
 # 计算量化所用的值
 scale = 256 / len(gray_scale)
 
-with open('test.txt', 'w') as output:
+'with open('test.txt', 'w') as output':''
   # 使用 r 读取 b 二进制 模式打开文件
-  with open('Doraemon.bmp', 'rb') as f:
+'  with open('Doraemon.bmp', 'rb') as f':''
     # 读取 14 字节的文件头
     bmp_file_header = f.read(14)
 
@@ -41,13 +41,13 @@ with open('test.txt', 'w') as output:
 
     print(info_size, width, height, bits, data_size)
 
-    for h in range(height):
-      for w in range(width):
+'    for h in range(height)':''
+'      for w in range(width)':''
         # 读取 3 字节的颜色，共计 24 bits ，对应 Blue Green Red.
         current_pix_color = f.read(3)
 
         # 将 BGR 按自己倒序为 RGB 方便显示
-        current_pix_color = current_pix_color[::-1]
+'        current_pix_color = current_pix_color[':':-1]'
 
         # Gray = R*0.2126 + G*0.7152 + B*0.0722
         gray = int(current_pix_color[0] * 0.2126 +

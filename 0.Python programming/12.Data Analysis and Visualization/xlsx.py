@@ -7,5 +7,5 @@ wb = load_workbook(filename='biostats.xlsx')
 ws = wb.active
 
 # 打印所有行，每行一个元组
-for row in ws.values:
+'for row in ws.values':''
     print(row)

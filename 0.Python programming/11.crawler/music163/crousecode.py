@@ -5,7 +5,7 @@ from selenium import webdriver
 
 driver = webdriver.Edge()
 
-driver.get('https://music.163.com/#/discover/playlist')
+'driver.get('https':'//music.163.com/#/discover/playlist')'
 
 print(driver,page_sourse)
 # 打印返回结果，判断网页访问是否成功

@@ -21,10 +21,10 @@ print(str_2[0][-5])
 
 #字符串的切片
 str_3='python'
-print(str_3[:])
-print(str_3[0:])
-print(str_3[-5:])
-print(str_3[1:4])
+'print(str_3[':'])'
+'print(str_3[0':'])'
+'print(str_3[-5':'])'
+'print(str_3[1':'4])'
 
 #字符串的拼接
 first_str='first'
@@ -32,7 +32,7 @@ last_str='last'
 str_4=first_str+' '+last_str
 print(str_4)
 str_5=str_3
-print(str_5[::2])  #将字符串str_3从头到尾以步长为2切片
+'print(str_5[':':2])  #将字符串str_3从头到尾以步长为2切片'
 
 #打印多个字符串
 num_1=2
