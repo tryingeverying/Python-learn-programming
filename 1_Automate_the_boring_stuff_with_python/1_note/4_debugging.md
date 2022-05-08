@@ -5,22 +5,22 @@
 
 ```python{.line-numbers}
 #实例演示
-def boxPrint(symbol,width,height):
-    if len(symbol) != 1:
+'def boxPrint(symbol,width,height)':''
+'    if len(symbol) != 1':''
         raise Exception('Symbol must be a single character string.')  # 如果通过if判断则抛出自己定制的异常
-    if width <= 2:
+'    if width <= 2':''
         raise Exception('Width must be greater than 2.')
-    if height <= 2: 
+'    if height <= 2':' '
         raise Exception('Height must be greater than 2.') 
     print(symbol * width)
-    for i in range(height - 2):
+'    for i in range(height - 2)':''
         print(symbol + (' ' * (width - 2)) + symbol)
     print(symbol * width)
-for sym, w, h in (('*', 4, 4), ('O', 20, 5), ('x', 1, 3), ('ZZ', 3, 3)):
-    try:
+'for sym, w, h in (('*', 4, 4), ('O', 20, 5), ('x', 1, 3), ('ZZ', 3, 3))':''
+'    try':''
         boxPrint(sym, w, h) 
-    except Exception as err: # 将前面的报错信息储存在err中以便后面的调用
-        print('An exception happened: ' + str(err))
+'    except Exception as err':' # 将前面的报错信息储存在err中以便后面的调用'
+'        print('An exception happened':' ' + str(err))'
 
 # 输出显示
 ****
@@ -32,8 +32,8 @@ O                  O
 O                  O
 O                  O
 OOOOOOOOOOOOOOOOOOOO
-An exception happened: Width must be greater than 2.
-An exception happened: Symbol must be a single character string.
+'An exception happened':' Width must be greater than 2.'
+'An exception happened':' Symbol must be a single character string.'
 ```
 
 ## assert函数
@@ -42,16 +42,16 @@ An exception happened: Symbol must be a single character string.
 - 这种方式在想要的地方抛出自己想要显示的异常
 
 ```py{.line-numbers}
-market_2nd = {'ns': 'green', 'ew': 'red'}
-mission_16th = {'ns': 'red', 'ew': 'green'}
+'market_2nd = {'ns'':' 'green', 'ew': 'red'}'
+'mission_16th = {'ns'':' 'red', 'ew': 'green'}'
 
-def switchlights(stoplight): #函数实现红绿黄的三色调换
-    for key in stoplight.keys():
-        if stoplight[key] == 'green':
+'def switchlights(stoplight)':' #函数实现红绿黄的三色调换'
+'    for key in stoplight.keys()':''
+'        if stoplight[key] == 'green'':''
             stoplight[key]='yellow'
-        elif stoplight[key] == 'yellow':
+'        elif stoplight[key] == 'yellow'':''
             stoplight[key]='red'
-        elif stoplight[key] == 'red':
+'        elif stoplight[key] == 'red'':''
             stoplight[key]='green'
 
     assert 'red' in stoplight.values(), 'Neither light is red! ' + str(stoplight)
@@ -60,7 +60,7 @@ switchlights(mission_16th)
 switchlights(market_2nd)
 
 #输出结果
-AssertionError: Neither light is red! {'ns': 'green', 'ew': 'yellow'}
+'AssertionError':' Neither light is red! {'ns': 'green', 'ew': 'yellow'}'
 ```
 
 ## raise函数时针对用户可能出现的问题而出现的报错信息，assert函数是针对函数运行过程中可能出现的问题是程序自己的问题
@@ -77,10 +77,10 @@ logging.basicConfig(level=logging.DEBUG,format=' %(asctime)s - %(levelname)s - %
 
 logging.debug('start of program')
 
-def factorial(n):
+'def factorial(n)':''
     logging.debug('start of factorial {0}'.format(0))
     total = 1
-    for i in range(n+1):
+'    for i in range(n+1)':''
         total *=i
         logging.debug('i is '+str(i) + ', total is ' + str(total))
     logging.debug('end of factorial {0} '.format(n))
@@ -90,16 +90,16 @@ print(factorial(5))
 logging.debug('end of program')
 
 #运行结果
-2022-04-17 17:44:07,684 - DEBUG - start of factorial 0
-2022-04-17 17:44:07,684 - DEBUG - i is 0, total is 0
-2022-04-17 17:44:07,684 - DEBUG - i is 1, total is 0
-2022-04-17 17:44:07,684 - DEBUG - i is 2, total is 0
-2022-04-17 17:44:07,685 - DEBUG - i is 3, total is 0
-2022-04-17 17:44:07,685 - DEBUG - i is 4, total is 0
-2022-04-17 17:44:07,685 - DEBUG - i is 5, total is 0
-2022-04-17 17:44:07,685 - DEBUG - end of factorial 5
+'2022-04-17 17':'44:07,684 - DEBUG - start of factorial 0'
+'2022-04-17 17':'44:07,684 - DEBUG - i is 0, total is 0'
+'2022-04-17 17':'44:07,684 - DEBUG - i is 1, total is 0'
+'2022-04-17 17':'44:07,684 - DEBUG - i is 2, total is 0'
+'2022-04-17 17':'44:07,685 - DEBUG - i is 3, total is 0'
+'2022-04-17 17':'44:07,685 - DEBUG - i is 4, total is 0'
+'2022-04-17 17':'44:07,685 - DEBUG - i is 5, total is 0'
+'2022-04-17 17':'44:07,685 - DEBUG - end of factorial 5'
 0
-2022-04-17 17:44:07,686 - DEBUG - end of program
+'2022-04-17 17':'44:07,686 - DEBUG - end of program'
 
 ```
 ### 日志级别
@@ -112,7 +112,7 @@ logging.debug('end of program')
 >>> logging.basicConfig(level=logging.INFO, format=' %(asctime)s -
 %(levelname)s - %(message)s')
 >>> logging.critical('Critical error! Critical error!')
-2015-05-22 11:10:48,054 - CRITICAL - Critical error! Critical error!
+'2015-05-22 11':'10:48,054 - CRITICAL - Critical error! Critical error!'
 >>> logging.disable(logging.CRITICAL) #在禁用最高级别的CRITICAL后，该语句后面的所有日志语句都被禁用了，如果想禁用所有日志，则可以把该语句提到import logging的后面来实现
 >>> logging.critical('Critical error! Critical error!')  #日志信息就被禁用了，如果想显示日志信息就上上面那个禁用日志的语句给注释了就行了
 >>> logging.error('Error! Error!')

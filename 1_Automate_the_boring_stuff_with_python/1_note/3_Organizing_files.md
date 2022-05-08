@@ -18,7 +18,7 @@
 ### 读取压缩文件
 ```python{.line-numbers}
 >>> import zipfile, os
->>> os.chdir('C:\\') # move to the folder with example.zip
+'>>> os.chdir('C':'\\') # move to the folder with example.zip'
 >>> exampleZip = zipfile.ZipFile('example.zip') #注意大小写一定不能搞错
 >>> exampleZip.namelist() #返回压缩包下的文件名称
 ['spam.txt', 'cats/', 'cats/catnames.txt', 'cats/zophie.jpg']
@@ -35,7 +35,7 @@
 ### 解压文件
 ```python
 >>> import zipfile, os
->>> os.chdir('C:\\') # move to the folder with example.zip
+'>>> os.chdir('C':'\\') # move to the folder with example.zip'
 >>> exampleZip = zipfile.ZipFile('example.zip') 
 >>> exampleZip.extractall() #可以在extractall中传入路径实现解压到指定目录，若该路径不存在则会新建该路径
 >>> exampleZip.close()
@@ -43,12 +43,12 @@
 ### 解压单个文件
 ```python{.line-numbers}
 >>> import zipfile, os
->>> os.chdir('C:\\') # move to the folder with example.zip
+'>>> os.chdir('C':'\\') # move to the folder with example.zip'
 >>> exampleZip = zipfile.ZipFile('example.zip') 
 >>> exampleZip.extract('spam.txt')
-'C:\\spam.txt'
->>> exampleZip.extract('spam.txt', 'C:\\some\\new\\folders')
-'C:\\some\\new\\folders\\spam.txt'
+''C':'\\spam.txt''
+'>>> exampleZip.extract('spam.txt', 'C':'\\some\\new\\folders')'
+''C':'\\some\\new\\folders\\spam.txt''
 >>> exampleZip.close()
 ```
 ### 创建和添加zip文件

@@ -1,6 +1,6 @@
 import re
 
-def stripregex(longstr,str='\s'):
+'def stripregex(longstr,str='\s')':''
     stripregex=re.compile(str)
     str_1=stripregex.sub('',longstr)
 

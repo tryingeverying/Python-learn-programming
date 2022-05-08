@@ -12,18 +12,18 @@ biaohao_regex=re.compile(r'\d{3}') #编号的正则表达式，三位数字
 
 wenjianming_list=[] #储存文件名的list
 
-for filename in os.listdir(wenjian_mulu): #遍历待检查目录下的所有文件，并且按序排列(文件在系统中是排好顺序的)
+'for filename in os.listdir(wenjian_mulu)':' #遍历待检查目录下的所有文件，并且按序排列(文件在系统中是排好顺序的)'
     #判断是文件且文件名是按要求的前缀和具有编号
-    if os.path.isfile(os.path.join(wenjian_mulu,filename)) and qianzhui_regex.search(filename):
+'    if os.path.isfile(os.path.join(wenjian_mulu,filename)) and qianzhui_regex.search(filename)':''
         #将符合要求的文件名存入list
         wenjianming_list.append(filename)
 print(wenjianming_list)
 
-for i in range(len(wenjianming_list)):#遍历符合要求的文件名list
-    if i==0:
+'for i in range(len(wenjianming_list))':'#遍历符合要求的文件名list'
+'    if i==0':''
         continue
         # 文件名的序号满足要求后一个比前一个大一
-    elif (int(biaohao_regex.search(wenjianming_list[i])).group()-int(biaohao_regex.search(wenjianming_list[i-1]).group()))>1:
+'    elif (int(biaohao_regex.search(wenjianming_list[i])).group()-int(biaohao_regex.search(wenjianming_list[i-1]).group()))>1':''
         #对于不符合要求的文件名序号改为前面的序号加一
         num=int(biaohao_regex.search(wenjianming_list[i-1]).group())+1
         #os.path.splitext(path) 将文件路径分为前面路径和后缀名，0是前面的路径即basename 1是后缀名

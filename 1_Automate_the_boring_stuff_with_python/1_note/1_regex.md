@@ -1,5 +1,8 @@
 # 正则表达式
 
+## 符号意义
+![元字符](/Python\1_Automate_the_boring_stuff_with_python\1_note\re_元字符.png)
+![量词及贪婪匹配](/Python\1_Automate_the_boring_stuff_with_python\1_note\re_量词.png)
 ## 利用括号分组
 - 分组是从左到右从外向里依次计数
 
