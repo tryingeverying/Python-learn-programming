@@ -14,10 +14,10 @@ datepattern = re.compile(r'''
 ''',re.VERBOSE)
 
 #遍历文件夹
-'for amerfilename in os.listdir('.')':''
+for amerfilename in os.listdir('.'):
     mo=datepattern.search(amerfilename)
 
-'    if mo==None':''
+    if mo==None:
         continue
     #获取日期内容
     beforepart = mo.group(1) # group的嵌套，从外到里依次排序 

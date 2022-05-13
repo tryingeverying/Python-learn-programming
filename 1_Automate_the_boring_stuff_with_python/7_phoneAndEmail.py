@@ -28,20 +28,20 @@ text=str(pyperclip.paste())     #把获取的内容全部转成str格式，int�
 # 处理通过正则表达式获取的内容
 
 matches = []
-'for groups in phoneRegex.findall(text)':' # 遍历findall获取所有的电话号码列表，并将之储存到列表matches中'
+for groups in phoneRegex.findall(text): # 遍历findall获取所有的电话号码列表，并将之储存到列表matches中
     phonenum = '-'.join([groups[1],groups[3],groups[5]])  #把电话号码统统改成中间是-的格式
     matches.append(phonenum)
 
-'for groups in emailRegex.findall(text)':' # 遍历findall获取所有的邮箱列表，并将之储存到列表matches中'
+for groups in emailRegex.findall(text): # 遍历findall获取所有的邮箱列表，并将之储存到列表matches中
     matches.append(groups[0])
 
 
 # 把获取的内容复制到剪切板上
-'if len(matches)':''
+if len(matches):
     pyperclip.copy('\n'.join(matches))
     print('内容已经复制到剪切板上')
     print('\n'.join(matches)) #把获取的内容打印出来
-'else':''
+else:
     print('复制的内容里没有电话号码和邮箱')
 
 
