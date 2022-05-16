@@ -8,6 +8,6 @@ for foldername,subfolders,filenames in os.walk(r'F:\Programming\Python\2_Python_
         print('SUBFOLDER OF ' + foldername + ': ' + subfolder)
     for filename in filenames:
         print('FILE InSIDE ' + foldername + ': '+ filename)
-    print('')
+    print('') 
 import zipfile
 

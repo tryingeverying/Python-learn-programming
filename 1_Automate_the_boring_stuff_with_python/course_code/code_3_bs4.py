@@ -74,48 +74,86 @@
 
 
 
-import requests , os ,time
+# import requests , os ,time
+# from bs4 import BeautifulSoup
+
+# url = 'http://bizhi360.com/weimei/'
+# header = {
+#     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36 Edg/101.0.1210.39'
+# }
+
+# res = requests.get(url , headers=header)
+# res.encoding= "UTF-8"
+
+# page = BeautifulSoup(res.text,'html.parser')
+# a_list = page.find('div',attrs={'class':"pic-list"}).find_all('a')
+
+# for a in a_list:
+#     href = ('http://bizhi360.com/' + a.get('href')) # 可以通过get方法获得对应的属性值，因为得到的不是完整的网页地址，所以自己拼接
+#     child_res = requests.get(href) 
+#     child_res.encoding = 'utf-8'
+#     child_res_text = child_res.text
+#     child_page = BeautifulSoup(child_res_text,'html.parser')
+#     img = child_page.find('div',attrs={'id':"main"}).find('img')
+#     # 获取图片的下载地址
+#     src = img.get('src')
+
+#     # 下载图片
+#     img_res = requests.get(src)
+#     img_name = src.split('/')[-1] 
+#     with open(os.path.join(r'F:\Programming\Python\1_Automate_the_boring_stuff_with_python\course_code\img',img_name),'wb') as f:
+#         f.write(img_res.content)
+#     print('over' , img_name)
+#     time.sleep(1)
+#     child_res.close()
+
+# print('all over !!!')
+# res.close()
+
+''' 使用抓取数据包的方式获取新发地的菜价信息'''
+
+# import requests,json 
+
+# url = 'http://www.xinfadi.com.cn/getCat.html'
+# header = {
+#     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36 Edg/101.0.1210.39'
+# }
+# res = requests.post(url,headers=header)
+
+# f = open(r'F:\Programming\Python\1_Automate_the_boring_stuff_with_python\course_code\菜价_抓包.json','w',encoding='utf-8')
+# json.dump(res.json(),fp= f,ensure_ascii=False)
+# print('over')
+# f.close()
+# res.close()
+
+'''获取三国演义的章节名称'''
+import requests,os
 from bs4 import BeautifulSoup
 
-url = 'http://bizhi360.com/weimei/'
+url = 'https://www.shicimingju.com/book/sanguoyanyi.html'
 header = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36 Edg/101.0.1210.39'
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36 Edg/101.0.1210.39'
 }
+res = requests.get(url,headers=header)
+res.encoding='utf-8'
+page = BeautifulSoup(res.text,'lxml')
+li_lists = page.select('.book-mulu > ul > li') #可以用 空格实现跳层，即不用一层一层往下走
 
-res = requests.get(url , headers=header)
-res.encoding= "UTF-8"
-
-page = BeautifulSoup(res.text,'html.parser')
-a_list = page.find('div',attrs={'class':"pic-list"}).find_all('a')
-
-for a in a_list:
-    href = ('http://bizhi360.com/' + a.get('href')) # 可以通过get方法获得对应的属性值，因为得到的不是完整的网页地址，所以自己拼接
-    child_res = requests.get(href) 
+f = open(r'F:\Programming\Python\1_Automate_the_boring_stuff_with_python\course_code\三国.txt','w',encoding='utf-8')
+for li in li_lists:
+    title = li.a.string
+    detail_url = 'https://www.shicimingju.com' + li.a['href']
+    child_res = requests.get(detail_url,headers=header)
     child_res.encoding = 'utf-8'
     child_res_text = child_res.text
-    child_page = BeautifulSoup(child_res_text,'html.parser')
-    img = child_page.find('div',attrs={'id':"main"}).find('img')
-    # 获取图片的下载地址
-    src = img.get('src')
-
-    # 下载图片
-    img_res = requests.get(src)
-    img_name = src.split('/')[-1] 
-    with open(os.path.join(r'F:\Programming\Python\1_Automate_the_boring_stuff_with_python\course_code\img',img_name),'wb') as f:
-        f.write(img_res.content)
-    print('over' , img_name)
-    time.sleep(1)
+    child_page = BeautifulSoup(child_res_text,'lxml')
+    child_tag = child_page.find('div',class_ = 'chapter_content')
+    content = child_tag.text
+    f.write(title + ':' + content + '\n')
+    print(title,'爬取成功')
     child_res.close()
+f.close()
 res.close()
-
-
-
-
-
-
-
-
-
 
 
 
