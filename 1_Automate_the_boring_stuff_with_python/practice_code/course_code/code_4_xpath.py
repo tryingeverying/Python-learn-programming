@@ -62,38 +62,38 @@
 
 '''站长素材简历爬取'''
 
-import requests,os,time
-from lxml import etree
+# import requests,os,time
+# from lxml import etree
 
-url = 'https://sc.chinaz.com/jianli/free.html'
+# url = 'https://sc.chinaz.com/jianli/free.html'
 
-header = {
-    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36 Edg/101.0.1210.39',
-    'Referer':'https://sc.chinaz.com'
-}
+# header = {
+#     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36 Edg/101.0.1210.39',
+#     'Referer':'https://sc.chinaz.com'
+# }
 
-res = requests.get(url,headers=header)
-res.encoding = 'utf-8'
+# res = requests.get(url,headers=header)
+# res.encoding = 'utf-8'
 
-tree = etree.HTML(res.text)
-child_urls = tree.xpath('//div[@id="main"]//p/a')
-down_path = r'F:\Programming\Python\1_Automate_the_boring_stuff_with_python\course_code\简历'
-if not os.path.exists(down_path):
-        os.mkdir(down_path)
-for li in child_urls:
-    child_url = 'http:' + li.xpath('./@href')[0]
-    child_res = requests.get(child_url,headers=header)
-    child_res.encoding = 'utf-8'
-    child_tree = etree.HTML(child_res.text)
-    download_lists = child_tree.xpath('//div[@class="clearfix mt20 downlist"]/ul/li[1]/a')[0]
-    download_url = download_lists.xpath('./@href')[0]
-    content = requests.get(download_url)
-    file_name = download_url.split('/')[-1]
-    with open(os.path.join(down_path,file_name),'wb') as f:
-        f.write(content.content)
-    print('over' + file_name)
-    time.sleep(1)
-    child_res.close()
-print('all over')
-res.close()
+# tree = etree.HTML(res.text)
+# child_urls = tree.xpath('//div[@id="main"]//p/a')
+# down_path = r'F:\Programming\Python\1_Automate_the_boring_stuff_with_python\course_code\简历'
+# if not os.path.exists(down_path):
+#         os.mkdir(down_path)
+# for li in child_urls:
+#     child_url = 'http:' + li.xpath('./@href')[0]
+#     child_res = requests.get(child_url,headers=header)
+#     child_res.encoding = 'utf-8'
+#     child_tree = etree.HTML(child_res.text)
+#     download_lists = child_tree.xpath('//div[@class="clearfix mt20 downlist"]/ul/li[1]/a')[0]
+#     download_url = download_lists.xpath('./@href')[0]
+#     content = requests.get(download_url)
+#     file_name = download_url.split('/')[-1]
+#     with open(os.path.join(down_path,file_name),'wb') as f:
+#         f.write(content.content)
+#     print('over' + file_name)
+#     time.sleep(1)
+#     child_res.close()
+# print('all over')
+# res.close()
 
